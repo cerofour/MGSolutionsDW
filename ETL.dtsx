@@ -1,0 +1,1020 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/30/2026 9:08:02 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CX-LCA0801-23"
+  DTS:CreatorName="GRUPOUTP\LAB-USR-CHICLAYO"
+  DTS:DTSID="{1B39A135-7EEB-4CDF-B793-E548275269B9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="10250"
+  DTS:ObjectName="ETL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{886B4B54-5293-4FB1-A9B5-2325366F66FA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Dim-Empleado"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{CAAC60FB-DDDA-4898-A05E-55BA8F3DE7C1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim-Empleado"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dim-Empleado\Destino DimEmpleado"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino DimEmpleado"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[DimEmpleado]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim-Empleado\Destino DimEmpleado.Connections[OleDbConnection]"
+                  connectionManagerID="{5CB86673-54A0-4886-B865-0FE4053F7DC5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost,1433.MGSolutionsDW.sa]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].Columns[codigoUsuario]"
+                      cachedDataType="i4"
+                      cachedName="codigoUsuario"
+                      externalMetadataColumnId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].ExternalColumns[codigoUsuario]"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[codigoUsuario]" />
+                    <inputColumn
+                      refId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].Columns[codigoEmpleado]"
+                      cachedDataType="i4"
+                      cachedName="codigoEmpleado"
+                      externalMetadataColumnId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].ExternalColumns[codigoEmpleado]"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[codigoEmpleado]" />
+                    <inputColumn
+                      refId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].Columns[codigoTipoUsuario]"
+                      cachedDataType="i4"
+                      cachedName="codigoTipoUsuario"
+                      externalMetadataColumnId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].ExternalColumns[codigoTipoUsuario]"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[codigoTipoUsuario]" />
+                    <inputColumn
+                      refId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].ExternalColumns[email]"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].Columns[nombreCompleto]"
+                      cachedDataType="wstr"
+                      cachedLength="98"
+                      cachedName="nombreCompleto"
+                      externalMetadataColumnId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombreCompleto]"
+                      lineageId="Package\Dim-Empleado\Nombre Completo.Outputs[Salida de columna derivada].Columns[nombreCompleto]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].ExternalColumns[idEmpleado]"
+                      dataType="i4"
+                      name="idEmpleado" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].ExternalColumns[codigoUsuario]"
+                      dataType="i4"
+                      name="codigoUsuario" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].ExternalColumns[codigoEmpleado]"
+                      dataType="i4"
+                      name="codigoEmpleado" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombreCompleto]"
+                      dataType="wstr"
+                      length="98"
+                      name="nombreCompleto" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].ExternalColumns[codigoTipoUsuario]"
+                      dataType="i4"
+                      name="codigoTipoUsuario" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="64"
+                      name="email" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim-Empleado\Destino DimEmpleado.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Empleado\Destino DimEmpleado.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Empleado\Destino DimEmpleado.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\Destino DimEmpleado.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Empleado\Destino DimEmpleado.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="DO Tablas Empleado y Usuario"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        dbo.Empleado.id_empleado AS codigoUsuario, dbo.Usuario.id_usuario AS codigoEmpleado, dbo.Empleado.nombre, dbo.Empleado.apellidoPaterno, dbo.Empleado.apellidoMaterno, 
+                         dbo.Usuario.id_tipoUsuario AS codigoTipoUsuario, dbo.Empleado.email
+FROM            dbo.Empleado INNER JOIN
+                         dbo.Usuario ON dbo.Empleado.id_empleado = dbo.Usuario.id_empleado</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Connections[IDbConnection]"
+                  connectionManagerID="{05321B81-B32B-47E1-9EE8-2B47235F5FE5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost,1433.MGSolutionsGroup.sa]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[codigoUsuario]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].ExternalColumns[codigoUsuario]"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[codigoUsuario]"
+                      name="codigoUsuario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[codigoEmpleado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].ExternalColumns[codigoEmpleado]"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[codigoEmpleado]"
+                      name="codigoEmpleado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      length="32"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[apellidoPaterno]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].ExternalColumns[apellidoPaterno]"
+                      length="32"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[apellidoPaterno]"
+                      name="apellidoPaterno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[apellidoMaterno]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].ExternalColumns[apellidoMaterno]"
+                      length="32"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[apellidoMaterno]"
+                      name="apellidoMaterno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[codigoTipoUsuario]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].ExternalColumns[codigoTipoUsuario]"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[codigoTipoUsuario]"
+                      name="codigoTipoUsuario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].ExternalColumns[email]"
+                      length="64"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].ExternalColumns[codigoUsuario]"
+                      dataType="i4"
+                      name="codigoUsuario" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].ExternalColumns[codigoEmpleado]"
+                      dataType="i4"
+                      name="codigoEmpleado" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="32"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].ExternalColumns[apellidoPaterno]"
+                      dataType="wstr"
+                      length="32"
+                      name="apellidoPaterno" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].ExternalColumns[apellidoMaterno]"
+                      dataType="wstr"
+                      length="32"
+                      name="apellidoMaterno" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].ExternalColumns[codigoTipoUsuario]"
+                      dataType="i4"
+                      name="codigoTipoUsuario" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="64"
+                      name="email" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[codigoUsuario]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[codigoUsuario]"
+                      name="codigoUsuario" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[codigoEmpleado]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[codigoEmpleado]"
+                      name="codigoEmpleado" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      dataType="wstr"
+                      length="32"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[apellidoPaterno]"
+                      dataType="wstr"
+                      length="32"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[apellidoPaterno]"
+                      name="apellidoPaterno" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[apellidoMaterno]"
+                      dataType="wstr"
+                      length="32"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[apellidoMaterno]"
+                      name="apellidoMaterno" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[codigoTipoUsuario]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[codigoTipoUsuario]"
+                      name="codigoTipoUsuario" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[email]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Empleado\Nombre Completo"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Nombre Completo"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim-Empleado\Nombre Completo.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim-Empleado\Nombre Completo.Inputs[Entrada de columna derivada].Columns[nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="nombre"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Dim-Empleado\Nombre Completo.Inputs[Entrada de columna derivada].Columns[apellidoPaterno]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="apellidoPaterno"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[apellidoPaterno]" />
+                    <inputColumn
+                      refId="Package\Dim-Empleado\Nombre Completo.Inputs[Entrada de columna derivada].Columns[apellidoMaterno]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="apellidoMaterno"
+                      lineageId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[apellidoMaterno]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim-Empleado\Nombre Completo.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Dim-Empleado\Nombre Completo.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Empleado\Nombre Completo.Outputs[Salida de columna derivada].Columns[nombreCompleto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="98"
+                      lineageId="Package\Dim-Empleado\Nombre Completo.Outputs[Salida de columna derivada].Columns[nombreCompleto]"
+                      name="nombreCompleto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[nombre]} + " " + #{Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[apellidoPaterno]} + " " + #{Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET].Columns[apellidoMaterno]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">nombre + " " + apellidoPaterno + " " + apellidoMaterno</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim-Empleado\Nombre Completo.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Dim-Empleado\Nombre Completo.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Empleado\Nombre Completo.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Empleado\Nombre Completo.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-Empleado\Nombre Completo.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Empleado\Nombre Completo.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dim-Empleado.Paths[Salida de columna derivada]"
+              endId="Package\Dim-Empleado\Destino DimEmpleado.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\Dim-Empleado\Nombre Completo.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Dim-Empleado.Paths[Salida de origen de ADO NET]"
+              endId="Package\Dim-Empleado\Nombre Completo.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Dim-Empleado\DO Tablas Empleado y Usuario.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dim-EstadoVentas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{D4A4CBB5-9930-4A7C-8BAA-2190855395D9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim-EstadoVentas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dim-EstadoVentas\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[DimEstadoVenta]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim-EstadoVentas\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{5CB86673-54A0-4886-B865-0FE4053F7DC5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost,1433.MGSolutionsDW.sa]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim-EstadoVentas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim-EstadoVentas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[estado]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="estado"
+                      externalMetadataColumnId="Package\Dim-EstadoVentas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[estado]"
+                      lineageId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de origen de ADO NET].Columns[estado]" />
+                    <inputColumn
+                      refId="Package\Dim-EstadoVentas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[id_tipoEstado]"
+                      cachedDataType="i4"
+                      cachedName="id_tipoEstado"
+                      externalMetadataColumnId="Package\Dim-EstadoVentas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[codigoEstadoVenta]"
+                      lineageId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de origen de ADO NET].Columns[id_tipoEstado]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim-EstadoVentas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[idEstadoVenta]"
+                      dataType="i4"
+                      name="idEstadoVenta" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-EstadoVentas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[codigoEstadoVenta]"
+                      dataType="i4"
+                      name="codigoEstadoVenta" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-EstadoVentas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[estado]"
+                      dataType="wstr"
+                      length="15"
+                      name="estado" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim-EstadoVentas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Dim-EstadoVentas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-EstadoVentas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-EstadoVentas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-EstadoVentas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-EstadoVentas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-EstadoVentas\OD EstadoVenta"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="OD EstadoVenta"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."TipoEstado"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim-EstadoVentas\OD EstadoVenta.Connections[IDbConnection]"
+                  connectionManagerID="{05321B81-B32B-47E1-9EE8-2B47235F5FE5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost,1433.MGSolutionsGroup.sa]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de origen de ADO NET].Columns[id_tipoEstado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de origen de ADO NET].ExternalColumns[id_tipoEstado]"
+                      lineageId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de origen de ADO NET].Columns[id_tipoEstado]"
+                      name="id_tipoEstado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de origen de ADO NET].Columns[estado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de origen de ADO NET].ExternalColumns[estado]"
+                      length="15"
+                      lineageId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de origen de ADO NET].Columns[estado]"
+                      name="estado"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de origen de ADO NET].ExternalColumns[id_tipoEstado]"
+                      dataType="i4"
+                      name="id_tipoEstado" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de origen de ADO NET].ExternalColumns[estado]"
+                      dataType="wstr"
+                      length="15"
+                      name="estado" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de error de origen de ADO NET].Columns[id_tipoEstado]"
+                      dataType="i4"
+                      lineageId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de error de origen de ADO NET].Columns[id_tipoEstado]"
+                      name="id_tipoEstado" />
+                    <outputColumn
+                      refId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de error de origen de ADO NET].Columns[estado]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de error de origen de ADO NET].Columns[estado]"
+                      name="estado" />
+                    <outputColumn
+                      refId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dim-EstadoVentas.Paths[Salida de origen de ADO NET]"
+              endId="Package\Dim-EstadoVentas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Dim-EstadoVentas\OD EstadoVenta.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{0A9F1414-40F4-4D6E-A49C-A79FD3CF7C84}"
+      DTS:From="Package\Dim-EstadoVentas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Dim-Empleado" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148,41.6"
+          Id="Package\Dim-Empleado"
+          TopLeft="356,166" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Dim-EstadoVentas"
+          TopLeft="351,74" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="431.75,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Dim-Empleado">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Dim-Empleado\Nombre Completo"
+          TopLeft="444.076921242934,119.538461515537" />
+        <NodeLayout
+          Size="224.8,41.6"
+          Id="Package\Dim-Empleado\DO Tablas Empleado y Usuario"
+          TopLeft="284,26" />
+        <NodeLayout
+          Size="182.4,41.6"
+          Id="Package\Dim-Empleado\Destino DimEmpleado"
+          TopLeft="539.230765665953,24.8461570670971" />
+        <EdgeLayout
+          Id="Package\Dim-Empleado.Paths[Salida de origen de ADO NET]"
+          TopLeft="396.4,67.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103.676921242934,51.9384615155367"
+              Start="0,0"
+              End="103.676921242934,44.4384615155367">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.8619843787972" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.8619843787972"
+                    Point2="0,30.8619843787972"
+                    Point3="4,30.8619843787972" />
+                  <mssgle:LineSegment
+                    End="99.676921242934,30.8619843787972" />
+                  <mssgle:CubicBezierSegment
+                    Point1="99.676921242934,30.8619843787972"
+                    Point2="103.676921242934,30.8619843787972"
+                    Point3="103.676921242934,34.8619843787972" />
+                  <mssgle:LineSegment
+                    End="103.676921242934,44.4384615155367" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim-Empleado.Paths[Salida de columna derivada]"
+          TopLeft="552.076921242934,119.538461515537">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78.3538444230192,-53.0923044484396"
+              Start="0,0"
+              End="78.3538444230192,-45.5923044484396">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-17.5447032544393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-17.5447032544393"
+                    Point2="0,-21.5447032544393"
+                    Point3="4,-21.5447032544393" />
+                  <mssgle:LineSegment
+                    End="74.3538444230192,-21.5447032544393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="74.3538444230192,-21.5447032544393"
+                    Point2="78.3538444230192,-21.5447032544393"
+                    Point3="78.3538444230192,-25.5447032544393" />
+                  <mssgle:LineSegment
+                    End="78.3538444230192,-45.5923044484396" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim-Empleado\DO Tablas Empleado y Usuario">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim-Empleado\Destino DimEmpleado">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Dim-EstadoVentas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Dim-EstadoVentas\OD EstadoVenta"
+          TopLeft="348,68" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\Dim-EstadoVentas\Destino de OLE DB"
+          TopLeft="340,241" />
+        <EdgeLayout
+          Id="Package\Dim-EstadoVentas.Paths[Salida de origen de ADO NET]"
+          TopLeft="425,110">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,131"
+              Start="0,0"
+              End="0,123.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,123.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim-EstadoVentas\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim-EstadoVentas\OD EstadoVenta">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
