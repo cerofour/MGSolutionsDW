@@ -11,8 +11,9 @@
   DTS:LocaleID="10250"
   DTS:ObjectName="ETL"
   DTS:PackageType="5"
-  DTS:VersionBuild="61"
-  DTS:VersionGUID="{A2BCAC44-FCD5-40B3-8B36-0BED1D6F13EE}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{22D6A0A7-03C9-419D-B3C5-71B5204B52A9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -7534,82 +7535,82 @@ ORDER BY codigoProducto;</property>
               name="Salida de columna derivada"
               startId="Package\Fact-Ventas\Calculo FK Tiempo.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\Fact-Ventas.Paths[Salida de combinación de mezcla2]"
+              refId="Package\Fact-Ventas.Paths[Salida de combinación de mezcla]"
               endId="Package\Fact-Ventas\Calculo Métricas.Inputs[Entrada de columna derivada]"
               name="Salida de combinación de mezcla"
               startId="Package\Fact-Ventas\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
             <path
-              refId="Package\Fact-Ventas.Paths[Salida de combinación de mezcla]"
+              refId="Package\Fact-Ventas.Paths[Salida de combinación de mezcla1]"
               endId="Package\Fact-Ventas\Merge con idCliente.Inputs[Entrada izquierda de combinación de mezcla]"
               name="Salida de combinación de mezcla"
               startId="Package\Fact-Ventas\Merge con idProducto.Outputs[Salida de combinación de mezcla]" />
             <path
-              refId="Package\Fact-Ventas.Paths[Salida de combinación de mezcla3]"
+              refId="Package\Fact-Ventas.Paths[Salida de combinación de mezcla2]"
               endId="Package\Fact-Ventas\Ordenar por id Producto.Inputs[Entrada de ordenación]"
               name="Salida de combinación de mezcla"
               startId="Package\Fact-Ventas\Merge con IdEmpleado.Outputs[Salida de combinación de mezcla]" />
             <path
-              refId="Package\Fact-Ventas.Paths[Salida de combinación de mezcla1]"
+              refId="Package\Fact-Ventas.Paths[Salida de combinación de mezcla3]"
               endId="Package\Fact-Ventas\Calculo FK Tiempo.Inputs[Entrada de columna derivada]"
               name="Salida de combinación de mezcla"
               startId="Package\Fact-Ventas\Merge con idCliente.Outputs[Salida de combinación de mezcla]" />
             <path
               refId="Package\Fact-Ventas.Paths[Salida de ordenación6]"
-              endId="Package\Fact-Ventas\Merge con idProducto.Inputs[Entrada izquierda de combinación de mezcla]"
+              endId="Package\Fact-Ventas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
               name="Salida de ordenación"
-              startId="Package\Fact-Ventas\Ordenar por id Producto.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\Fact-Ventas.Paths[Salida de ordenación]"
-              endId="Package\Fact-Ventas\Merge con IdEmpleado.Inputs[Entrada izquierda de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\Fact-Ventas\Ordenar Por Id-Empleado.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\Fact-Ventas.Paths[Salida de ordenación1]"
-              endId="Package\Fact-Ventas\Merge con IdEmpleado.Inputs[Entrada derecha de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\Fact-Ventas\Ordenar Por Código Empleado.Outputs[Salida de ordenación]" />
+              startId="Package\Fact-Ventas\Ordenar por IdTiempo.Outputs[Salida de ordenación]" />
             <path
               refId="Package\Fact-Ventas.Paths[Salida de ordenación5]"
-              endId="Package\Fact-Ventas\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\Fact-Ventas\Ordenar por Tiempo.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\Fact-Ventas.Paths[Salida de ordenación2]"
-              endId="Package\Fact-Ventas\Merge con idProducto.Inputs[Entrada derecha de combinación de mezcla]"
-              name="Salida de ordenación"
-              startId="Package\Fact-Ventas\Ordenar por código producto.Outputs[Salida de ordenación]" />
-            <path
-              refId="Package\Fact-Ventas.Paths[Salida de ordenación3]"
               endId="Package\Fact-Ventas\Merge con idCliente.Inputs[Entrada derecha de combinación de mezcla]"
               name="Salida de ordenación"
               startId="Package\Fact-Ventas\Ordenar por código cliente.Outputs[Salida de ordenación]" />
             <path
               refId="Package\Fact-Ventas.Paths[Salida de ordenación4]"
-              endId="Package\Fact-Ventas\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              endId="Package\Fact-Ventas\Merge con idProducto.Inputs[Entrada derecha de combinación de mezcla]"
               name="Salida de ordenación"
-              startId="Package\Fact-Ventas\Ordenar por IdTiempo.Outputs[Salida de ordenación]" />
+              startId="Package\Fact-Ventas\Ordenar por código producto.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Fact-Ventas.Paths[Salida de ordenación3]"
+              endId="Package\Fact-Ventas\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Fact-Ventas\Ordenar por Tiempo.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Fact-Ventas.Paths[Salida de ordenación2]"
+              endId="Package\Fact-Ventas\Merge con IdEmpleado.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Fact-Ventas\Ordenar Por Código Empleado.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Fact-Ventas.Paths[Salida de ordenación1]"
+              endId="Package\Fact-Ventas\Merge con IdEmpleado.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Fact-Ventas\Ordenar Por Id-Empleado.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Fact-Ventas.Paths[Salida de ordenación]"
+              endId="Package\Fact-Ventas\Merge con idProducto.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Fact-Ventas\Ordenar por id Producto.Outputs[Salida de ordenación]" />
             <path
               refId="Package\Fact-Ventas.Paths[Salida de origen de ADO NET]"
               endId="Package\Fact-Ventas\Ordenar Por Id-Empleado.Inputs[Entrada de ordenación]"
               name="Salida de origen de ADO NET"
               startId="Package\Fact-Ventas\Query Ventas.Outputs[Salida de origen de ADO NET]" />
             <path
-              refId="Package\Fact-Ventas.Paths[Salida de origen de OLE DB1]"
+              refId="Package\Fact-Ventas.Paths[Salida de origen de OLE DB]"
               endId="Package\Fact-Ventas\Ordenar por código producto.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
               startId="Package\Fact-Ventas\DimProducto.Outputs[Salida de origen de OLE DB]" />
             <path
-              refId="Package\Fact-Ventas.Paths[Salida de origen de OLE DB]"
+              refId="Package\Fact-Ventas.Paths[Salida de origen de OLE DB1]"
               endId="Package\Fact-Ventas\Ordenar Por Código Empleado.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
               startId="Package\Fact-Ventas\DimEmpleado.Outputs[Salida de origen de OLE DB]" />
             <path
-              refId="Package\Fact-Ventas.Paths[Salida de origen de OLE DB3]"
+              refId="Package\Fact-Ventas.Paths[Salida de origen de OLE DB2]"
               endId="Package\Fact-Ventas\Ordenar por IdTiempo.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
               startId="Package\Fact-Ventas\DimTiempo.Outputs[Salida de origen de OLE DB]" />
             <path
-              refId="Package\Fact-Ventas.Paths[Salida de origen de OLE DB2]"
+              refId="Package\Fact-Ventas.Paths[Salida de origen de OLE DB3]"
               endId="Package\Fact-Ventas\Ordenar por código cliente.Inputs[Entrada de ordenación]"
               name="Salida de origen de OLE DB"
               startId="Package\Fact-Ventas\DimCliente.Outputs[Salida de origen de OLE DB]" />
@@ -7673,17 +7674,29 @@ ORDER BY codigoProducto;</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="132.8,41.6"
+          Size="133,42"
           Id="Package\Dim-Cliente"
           TopLeft="357.857143618927,263.05882329883" />
         <NodeLayout
-          Size="148,41.6"
+          Size="148,42"
           Id="Package\Dim-Empleado"
           TopLeft="356,166" />
         <NodeLayout
-          Size="164,41.6"
+          Size="164,42"
           Id="Package\Dim-EstadoVentas"
           TopLeft="340.999999978713,90.8235293970182" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\DimProducto"
+          TopLeft="362.142857913764,356.752940886903" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Dim-Tiempo"
+          TopLeft="169.285714646079,90.2352940385523" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Fact-Ventas"
+          TopLeft="170.000000361885,189.388235153356" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="426.499999989357,132.423529397018">
@@ -7728,10 +7741,6 @@ ORDER BY codigoProducto;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="136,41.6"
-          Id="Package\Dim-Tiempo"
-          TopLeft="169.285714646079,90.2352940385523" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
           TopLeft="305.285714646079,111.329411717785">
@@ -7754,10 +7763,6 @@ ORDER BY codigoProducto;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="133.6,41.6"
-          Id="Package\Fact-Ventas"
-          TopLeft="170.000000361885,189.388235153356" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
           TopLeft="237.042857503982,189.388235153356">
@@ -7780,10 +7785,6 @@ ORDER BY codigoProducto;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="138.4,41.6"
-          Id="Package\DimProducto"
-          TopLeft="362.142857913764,356.752940886903" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
           TopLeft="427.800000766346,304.65882329883">
@@ -8049,6 +8050,77 @@ ORDER BY codigoProducto;</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\DimProducto">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\DimProducto\Query Productos"
+          TopLeft="337.769225736077,15.6923074584741" />
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\DimProducto\DimProducto"
+          TopLeft="335.384610386995,129.999998062849" />
+        <EdgeLayout
+          Id="Package\DimProducto.Paths[Salida de origen de ADO NET]"
+          TopLeft="415.769225736077,57.2923074584741">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11.184615349082,72.707690604375"
+              Start="0,0"
+              End="-11.184615349082,65.207690604375">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.3538453021875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.3538453021875"
+                    Point2="0,36.3538453021875"
+                    Point3="-4,36.3538453021875" />
+                  <mssgle:LineSegment
+                    End="-7.18461534908204,36.3538453021875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.18461534908204,36.3538453021875"
+                    Point2="-11.184615349082,36.3538453021875"
+                    Point3="-11.184615349082,40.3538453021875" />
+                  <mssgle:LineSegment
+                    End="-11.184615349082,65.207690604375" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimProducto\DimProducto">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimProducto\Query Productos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Fact-Ventas">
     <LayoutInfo>
       <GraphLayout
@@ -8092,7 +8164,7 @@ ORDER BY codigoProducto;</property>
           Id="Package\Fact-Ventas\Ordenar Por Código Empleado"
           TopLeft="409.423071328838,154.705125899842" />
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de origen de OLE DB]"
+          Id="Package\Fact-Ventas.Paths[Salida de origen de OLE DB1]"
           TopLeft="569.999991506338,182.402561724301">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8118,7 +8190,7 @@ ORDER BY codigoProducto;</property>
           Id="Package\Fact-Ventas\Merge con IdEmpleado"
           TopLeft="180.410253712764,158.923075077625" />
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de ordenación]"
+          Id="Package\Fact-Ventas.Paths[Salida de ordenación1]"
           TopLeft="274.273074270957,135.38204988459">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8140,7 +8212,7 @@ ORDER BY codigoProducto;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de ordenación1]"
+          Id="Package\Fact-Ventas.Paths[Salida de ordenación2]"
           TopLeft="409.423071328838,179.614100488734">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8174,7 +8246,7 @@ ORDER BY codigoProducto;</property>
           Id="Package\Fact-Ventas\Ordenar por código producto"
           TopLeft="403.833327315748,290.666662335396" />
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de origen de OLE DB1]"
+          Id="Package\Fact-Ventas.Paths[Salida de origen de OLE DB]"
           TopLeft="567.333324879408,318.266662275791">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8196,7 +8268,7 @@ ORDER BY codigoProducto;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de ordenación2]"
+          Id="Package\Fact-Ventas.Paths[Salida de ordenación4]"
           TopLeft="403.833327315748,315.933328977227">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8222,7 +8294,7 @@ ORDER BY codigoProducto;</property>
           Id="Package\Fact-Ventas\Merge con idCliente"
           TopLeft="192.999997124076,377.999994367361" />
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de combinación de mezcla]"
+          Id="Package\Fact-Ventas.Paths[Salida de combinación de mezcla1]"
           TopLeft="275.749997202307,335.599995619059">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8248,7 +8320,7 @@ ORDER BY codigoProducto;</property>
           Id="Package\Fact-Ventas\Ordenar por código cliente"
           TopLeft="400.999994024634,367.999994516373" />
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de ordenación3]"
+          Id="Package\Fact-Ventas.Paths[Salida de ordenación5]"
           TopLeft="400.999994024634,395.599994441867">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8274,7 +8346,7 @@ ORDER BY codigoProducto;</property>
           Id="Package\Fact-Ventas\DimCliente"
           TopLeft="572.999991461635,368.999994501472" />
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de origen de OLE DB2]"
+          Id="Package\Fact-Ventas.Paths[Salida de origen de OLE DB3]"
           TopLeft="572.999991461635,391.099994508922">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8300,7 +8372,7 @@ ORDER BY codigoProducto;</property>
           Id="Package\Fact-Ventas\Calculo FK Tiempo"
           TopLeft="197.99999704957,427.999993622303" />
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de combinación de mezcla1]"
+          Id="Package\Fact-Ventas.Paths[Salida de combinación de mezcla3]"
           TopLeft="192.999997124076,398.799994367361">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8346,7 +8418,7 @@ ORDER BY codigoProducto;</property>
           Id="Package\Fact-Ventas\DimTiempo"
           TopLeft="626.999990656972,528.799994397164" />
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de origen de OLE DB3]"
+          Id="Package\Fact-Ventas.Paths[Salida de origen de OLE DB2]"
           TopLeft="626.999990656972,550.19999435246">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8368,7 +8440,7 @@ ORDER BY codigoProducto;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de ordenación4]"
+          Id="Package\Fact-Ventas.Paths[Salida de ordenación6]"
           TopLeft="436.999993488193,550.999993756413">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8428,7 +8500,7 @@ ORDER BY codigoProducto;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de ordenación5]"
+          Id="Package\Fact-Ventas.Paths[Salida de ordenación3]"
           TopLeft="194.999997094274,508.199995097518">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8466,7 +8538,7 @@ ORDER BY codigoProducto;</property>
           Id="Package\Fact-Ventas\Calculo Métricas"
           TopLeft="211.999996840954,607.999990940094" />
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de combinación de mezcla2]"
+          Id="Package\Fact-Ventas.Paths[Salida de combinación de mezcla]"
           TopLeft="288.799996975064,571.99999320507">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8492,7 +8564,7 @@ ORDER BY codigoProducto;</property>
           Id="Package\Fact-Ventas\Ordenar por id Producto"
           TopLeft="67.999998986721,229.999996572733" />
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de combinación de mezcla3]"
+          Id="Package\Fact-Ventas.Paths[Salida de combinación de mezcla2]"
           TopLeft="274.010253712764,200.523075077625">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8526,7 +8598,7 @@ ORDER BY codigoProducto;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Fact-Ventas.Paths[Salida de ordenación6]"
+          Id="Package\Fact-Ventas.Paths[Salida de ordenación]"
           TopLeft="259.999998986721,250.799996572733">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8559,6 +8631,32 @@ ORDER BY codigoProducto;</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Fact-Ventas\DimProducto">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact-Ventas\DimTiempo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Fact-Ventas\Query Ventas">
     <Properties>
       <Property>
@@ -8579,105 +8677,8 @@ ORDER BY codigoProducto;</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DimProducto">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\DimProducto\Query Productos"
-          TopLeft="337.769225736077,15.6923074584741" />
-        <NodeLayout
-          Size="138.4,41.6"
-          Id="Package\DimProducto\DimProducto"
-          TopLeft="335.384610386995,129.999998062849" />
-        <EdgeLayout
-          Id="Package\DimProducto.Paths[Salida de origen de ADO NET]"
-          TopLeft="415.769225736077,57.2923074584741">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-11.184615349082,72.707690604375"
-              Start="0,0"
-              End="-11.184615349082,65.207690604375">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.3538453021875" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.3538453021875"
-                    Point2="0,36.3538453021875"
-                    Point3="-4,36.3538453021875" />
-                  <mssgle:LineSegment
-                    End="-7.18461534908204,36.3538453021875" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-7.18461534908204,36.3538453021875"
-                    Point2="-11.184615349082,36.3538453021875"
-                    Point3="-11.184615349082,40.3538453021875" />
-                  <mssgle:LineSegment
-                    End="-11.184615349082,65.207690604375" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DimProducto\Query Productos">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DimProducto\DimProducto">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fact-Ventas\DimProducto">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Fact-Ventas\DimCliente">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fact-Ventas\DimTiempo">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

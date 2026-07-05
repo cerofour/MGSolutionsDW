@@ -5,10 +5,6 @@
   DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=localhost,1433;User ID=sa;Initial Catalog=MGSolutionsGroup;Persist Security Info=True;TrustServerCertificate=True;Application Name=SSIS-MGSolutionsDW-{E9C3E717-D16E-4E38-94C9-926BF9085A96}localhost,1433.MGSolutionsGroup.sa1;">
-      <DTS:Password
-        DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIbRvYeN/nUSr0Ix+E1o2RwAAAAACAAAAAAAQZgAAAAEAACAAAACb8CoSyofgn612+cgnRHLB0od3jdJh8aVSINpferGHkgAAAAAOgAAAAAIAACAAAAC7nR2xjAoUKD/I0V0Y9tnTVQtc425OFv7kp+W+3GqskIAAAABIJKbfQUWxr6u4DljsR0O7jpvGuSbpvF79axBMadD9cSo3GFDnhemyd59aAPen+lu9mlHD+YuyQpksCWtIE7bpTQ5gdw9j/hsEl6sx0Uje0iw4shEKO6RJ9YZYYYRDCIqhep8oEwKO90FPHORfDyEd9u9dfkgWa9IEBeGFnaR9gkAAAABKpKtbGN6Snb1MSzyOMHTrWIAbC/tYDihD3U7iPGI0taaArHSJJScwKtQbIKdZXMCTST2LXBjtbYlThDIfNHRv</DTS:Password>
-    </DTS:ConnectionManager>
+      DTS:ConnectionString="Data Source=localhost,1433;User ID=sa;Initial Catalog=MGSolutionsGroup;Persist Security Info=True;TrustServerCertificate=True;Application Name=SSIS-MGSolutionsDW-{E9C3E717-D16E-4E38-94C9-926BF9085A96}localhost,1433.MGSolutionsGroup.sa1;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

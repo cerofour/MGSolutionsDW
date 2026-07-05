@@ -7,10 +7,6 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=localhost,1433;User ID=sa;Initial Catalog=MGSolutionsDW;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-MGSolutionsDW-{5CB86673-54A0-4886-B865-0FE4053F7DC5}localhost,1433.MGSolutionsDW.sa;">
-      <DTS:Password
-        DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIbRvYeN/nUSr0Ix+E1o2RwAAAAACAAAAAAAQZgAAAAEAACAAAAA+JTngR6Wxn49hBK44U7b84hq0yIApqefBEUnNi9TcOwAAAAAOgAAAAAIAACAAAAA4qVJoVrITbK8ryEdYPFK4wbc7I8xNavMBc4/DDjlfgIAAAAA8FR1OsYbolDQhf8HtTCRvaN7eYhbYL7FP/soMxUba2jSnyFBrMHz8+F4dsuipO6OMyDwiK24yvpp4YgFTAJ1dRa6rIaKGO4CYeRuEGIDK5XvsjIZFkRA732yZfeXDlx9Boyty7eDdFQki7WWO8KRjm0zWMqOZmrZaaejgI8DE3EAAAACEEyr0TPy+HXUpMTYI7fVqh2fHAjHjbr3dUAlBSLlBjKM6GO2UNV1v3Ck4ZhiyVGC1Yk/dWSX2Jj8gxuzbe0p+</DTS:Password>
-    </DTS:ConnectionManager>
+      DTS:ConnectionString="Data Source=localhost,1433;User ID=sa;Initial Catalog=MGSolutionsDW;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-MGSolutionsDW-{5CB86673-54A0-4886-B865-0FE4053F7DC5}localhost,1433.MGSolutionsDW.sa;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>
