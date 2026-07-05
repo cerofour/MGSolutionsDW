@@ -26,20 +26,21 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">CX-LCA0801-23</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="Qfu1+7QyNpI=" SSIS:IV="GpsaE1VURbmECjsD1aVNrQ==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">CzkiTo/dG88g+LhOLWie2cbjkQV4W13bjhoJkFzy8wiLPUxK53ASHa+lokueUq27G3HCWwVBrwj0sokcSy6T3zAuIwmx6kcXg8f6iyOgMykUWyjlkcXzbAYMK499n3aZZ1seDdYGktNHqG5/nOW3M2+eJOwLFmF4wIFpTEUfUXy/2myyt26raE8CHoln2TGX</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="DIWDvBsNRrA=" SSIS:IV="qkb2+F5zquSomkWzO84dPg==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">93ECLSl+LvJqK9w50OYSRQnfPiqFwI8ersYg/A9OBb9SEFtFJ5nL9T+bIYdQGl/TuGEPJZGYmID6SW1mePnewLeI5Jitnqc6CUHO7M/lrlLduGFDcJLWYyHMeitcTwVeH6rQZBp0PnRaYGwQ9nbRokz1gFs2D8bawXlQHfXZbeY2MAcC0rKpq0FBLWiBRrSS</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="ETL.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
-          <SSIS:ConnectionManager SSIS:Name="localhost,1433.MGSolutionsGroup.sa.conmgr" />
-          <SSIS:ConnectionManager SSIS:Name="localhost,1433.MGSolutionsDW.sa.conmgr" />
-          <SSIS:ConnectionManager SSIS:Name="localhost,1433.MGSolutionsGroup.sa1.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="34.28.134.200,1433.MGSolutionsGroup.sa 1.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="34.28.134.200,1433.MGSolutionsDW.sa 1.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="34.28.134.200,1433.MGSolutionsGroup.sa 2.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="34.28.134.200,1433.MGSolutionsGroup.sa1.conmgr" />
         </SSIS:ConnectionManagers>
         <SSIS:DeploymentInfo>
           <SSIS:ProjectConnectionParameters>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa.ConnectByProxy">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 1.ConnectByProxy">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -54,7 +55,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa.ConnectionString">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 1.ConnectionString">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -65,11 +66,11 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=localhost,1433;User ID=sa;Initial Catalog=MGSolutionsGroup;Persist Security Info=True;Trust Server Certificate=True;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=34.28.134.200,1433;User ID=sa;Initial Catalog=MGSolutionsGroup;Persist Security Info=True;Trust Server Certificate=True;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa.ConnectUsingManagedIdentity">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 1.ConnectUsingManagedIdentity">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -84,7 +85,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa.InitialCatalog">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 1.InitialCatalog">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -99,7 +100,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa.Password">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 1.Password">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -113,7 +114,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa.RetainSameConnection">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 1.RetainSameConnection">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -128,7 +129,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa.ServerName">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 1.ServerName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -139,11 +140,11 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">localhost,1433</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">34.28.134.200,1433</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa.UserName">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 1.UserName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -158,7 +159,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsDW.sa.ConnectByProxy">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsDW.sa 1.ConnectByProxy">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -173,7 +174,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsDW.sa.ConnectionString">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsDW.sa 1.ConnectionString">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -184,11 +185,11 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=localhost,1433;User ID=sa;Initial Catalog=MGSolutionsDW;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-MGSolutionsDW-{5CB86673-54A0-4886-B865-0FE4053F7DC5}localhost,1433.MGSolutionsDW.sa;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=34.28.134.200,1433;User ID=sa;Initial Catalog=MGSolutionsDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-MGSolutionsDW-{16925508-E452-4B15-BC6C-8B38C37302E3}34.28.134.200,1433.MGSolutionsDW.sa;Auto Translate=False;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsDW.sa.ConnectRetryCount">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsDW.sa 1.ConnectRetryCount">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -203,7 +204,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsDW.sa.ConnectRetryInterval">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsDW.sa 1.ConnectRetryInterval">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -218,7 +219,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsDW.sa.ConnectUsingManagedIdentity">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsDW.sa 1.ConnectUsingManagedIdentity">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -233,7 +234,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsDW.sa.InitialCatalog">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsDW.sa 1.InitialCatalog">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -248,7 +249,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsDW.sa.Password">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsDW.sa 1.Password">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -262,7 +263,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsDW.sa.RetainSameConnection">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsDW.sa 1.RetainSameConnection">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -277,7 +278,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsDW.sa.ServerName">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsDW.sa 1.ServerName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -288,11 +289,11 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">localhost,1433</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">34.28.134.200,1433</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsDW.sa.UserName">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsDW.sa 1.UserName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -307,7 +308,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa1.ConnectByProxy">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 2.ConnectByProxy">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -322,7 +323,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa1.ConnectionString">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 2.ConnectionString">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -333,11 +334,11 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=localhost,1433;User ID=sa;Initial Catalog=MGSolutionsGroup;Persist Security Info=True;TrustServerCertificate=True;Application Name=SSIS-MGSolutionsDW-{E9C3E717-D16E-4E38-94C9-926BF9085A96}localhost,1433.MGSolutionsGroup.sa1;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=34.28.134.200,1433;User ID=sa;Initial Catalog=MGSolutionsGroup;Persist Security Info=True;Trust Server Certificate=True;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa1.ConnectUsingManagedIdentity">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 2.ConnectUsingManagedIdentity">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -352,7 +353,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa1.InitialCatalog">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 2.InitialCatalog">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -367,7 +368,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa1.Password">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 2.Password">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -381,7 +382,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa1.RetainSameConnection">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 2.RetainSameConnection">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -396,7 +397,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa1.ServerName">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 2.ServerName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -407,11 +408,160 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">localhost,1433</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">34.28.134.200,1433</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost,1433.MGSolutionsGroup.sa1.UserName">
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa 2.UserName">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">sa</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa1.ConnectByProxy">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa1.ConnectionString">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=34.28.134.200,1433;User ID=sa;Initial Catalog=MGSolutionsGroup;Provider=SQLOLEDB.1;Application Name=SSIS-MGSolutionsDW-{AE74D035-BFFF-4CC3-A73E-F7DC437BEAA0}34.28.134.200,1433.MGSolutionsGroup.sa1;Auto Translate=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa1.ConnectRetryCount">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa1.ConnectRetryInterval">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">5</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa1.ConnectUsingManagedIdentity">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa1.InitialCatalog">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">MGSolutionsGroup</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa1.Password">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa1.RetainSameConnection">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa1.ServerName">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">34.28.134.200,1433</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.34.28.134.200,1433.MGSolutionsGroup.sa1.UserName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -434,10 +584,10 @@
                 <SSIS:Property SSIS:Name="Name">ETL</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">62</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">87</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{22D6A0A7-03C9-419D-B3C5-71B5204B52A9}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{497AC32C-C8C4-477F-93BE-ED9F08CC10C9}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

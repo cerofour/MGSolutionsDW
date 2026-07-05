@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="34.28.134.200,1433.MGSolutionsDW.sa 1"
+  DTS:DTSID="{16925508-E452-4B15-BC6C-8B38C37302E3}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=34.28.134.200,1433;User ID=sa;Initial Catalog=MGSolutionsDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-MGSolutionsDW-{16925508-E452-4B15-BC6C-8B38C37302E3}34.28.134.200,1433.MGSolutionsDW.sa;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="HI2Z97Lzbas="
+        p4:IV="pHkzbKuTOGFBnqjFi4MROg=="
+        p4:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" xmlns:p4="www.microsoft.com/SqlServer/SSIS">OgwKG58g3+JRY+WQkIPUrlC1eFVba2IoYZmajFf9w/jp4u3H1bCU2EuhmM6BDuXpC/r9hQJa6mFoBg/4VPzRWExKOpKFaAXRM4ctrOcwnnuBnxX/FQkFYd78Ndm3pgA8HkeWM3dhjaN2Ek7yJd2fZ8p5nTBEl8WsfKKuqRzeVBw=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

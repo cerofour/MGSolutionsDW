@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="34.28.134.200,1433.MGSolutionsGroup.sa"
+  DTS:DTSID="{B874B3BD-529F-498A-A2BF-B326FE0F3928}"
+  DTS:CreationName="ADO.NET:Microsoft.Data.SqlClient.SqlConnection, Microsoft.Data.SqlClient, Version=6.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=34.28.134.200,1433;User ID=sa;Initial Catalog=MGSolutionsGroup;Persist Security Info=True;Trust Server Certificate=True;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="9WnRVQo6p3g="
+        p4:IV="1rA2WyRHylw5YYL7sVN6ew=="
+        p4:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" xmlns:p4="www.microsoft.com/SqlServer/SSIS">n6QJ0EG/KLCUE0yce/Yr2Q2GzvswFHA8KxXItcvfT8zJHtk4mPW1upQZvm93TKqNyzQ3/XJ8CrSlpllp69q/1NfYG11p2kr36NQQaEq0+Qxztjq5tRZ3kKeFlTXx94CfkIHNjv0Z732WFiyyT8KP+WnSUNjjkTmrFiX+ezqd6HQ=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
