@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:ObjectName="localhost,1433.MGSolutionsDW.sa"
   DTS:DTSID="{5CB86673-54A0-4886-B865-0FE4053F7DC5}"
@@ -7,10 +7,10 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=localhost,1433;User ID=sa;Initial Catalog=MGSolutionsDW;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-MGSolutionsDW-{5CB86673-54A0-4886-B865-0FE4053F7DC5}localhost,1433.MGSolutionsDW.sa;Auto Translate=False;">
+      DTS:ConnectionString="Data Source=localhost,1433;User ID=sa;Initial Catalog=MGSolutionsDW;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-MGSolutionsDW-{5CB86673-54A0-4886-B865-0FE4053F7DC5}localhost,1433.MGSolutionsDW.sa;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIbRvYeN/nUSr0Ix+E1o2RwAAAAACAAAAAAAQZgAAAAEAACAAAADE6SrLcYCttBkFRgrrGhKSKB4G2XWhfwmcQzQzaK0tOwAAAAAOgAAAAAIAACAAAAC1bgZYSjMUTnEz9nP/S3IuJfQ0VyPJod018SiNvI3ofYAAAADr+lciFzo2O02gyx6faul6Vib4S9Zmx9W4ZmlTbdmUFyzUjyu4mxVv5rYoDZRDuSnMakeSIifVOb/tyv2xE3u6iukPaMj05sdCxW+Pz94bXgVMALhYzArs08tFjySWd/eelkykWHFIGwEGr71Kdg/s53rbVCxQomq/A0eLIs5SKEAAAAAH9iR0TTN5J90a7Kzk2q3EY3HJfnPNFPIywbd/+IIQaPItQmyqD0GgAiIPrk52lfckKGItKVDIRnQ20vyjm8W/</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAIbRvYeN/nUSr0Ix+E1o2RwAAAAACAAAAAAAQZgAAAAEAACAAAAA+JTngR6Wxn49hBK44U7b84hq0yIApqefBEUnNi9TcOwAAAAAOgAAAAAIAACAAAAA4qVJoVrITbK8ryEdYPFK4wbc7I8xNavMBc4/DDjlfgIAAAAA8FR1OsYbolDQhf8HtTCRvaN7eYhbYL7FP/soMxUba2jSnyFBrMHz8+F4dsuipO6OMyDwiK24yvpp4YgFTAJ1dRa6rIaKGO4CYeRuEGIDK5XvsjIZFkRA732yZfeXDlx9Boyty7eDdFQki7WWO8KRjm0zWMqOZmrZaaejgI8DE3EAAAACEEyr0TPy+HXUpMTYI7fVqh2fHAjHjbr3dUAlBSLlBjKM6GO2UNV1v3Ck4ZhiyVGC1Yk/dWSX2Jj8gxuzbe0p+</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
