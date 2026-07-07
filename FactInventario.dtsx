@@ -1,0 +1,2339 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/7/2026 9:13:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-4CLA5LS"
+  DTS:CreatorName="DESKTOP-4CLA5LS\llacs"
+  DTS:DTSID="{BD24EEBF-4139-4BEB-A25F-15143702EB78}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="10250"
+  DTS:ObjectName="FactInventario"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{00BDCAA5-FAE2-4682-8B65-957BD89EE7AF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FactInventario"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{33A5853F-1E68-4DDB-A30E-12B47A6A0F00}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FactInventario"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FactInventario\Columna derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\FactInventario\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventario\Columna derivada.Inputs[Entrada de columna derivada].Columns[fecha]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="fecha"
+                      lineageId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventario\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\FactInventario\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\Columna derivada.Outputs[Salida de columna derivada].Columns[fechaOlap]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\FactInventario\Columna derivada.Outputs[Salida de columna derivada].Columns[fechaOlap]"
+                      name="fechaOlap"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">(DT_DBDATE)#{Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)fecha</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactInventario\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\FactInventario\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventario\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventario\Combinación de mezcla"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\FactInventario\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[idProducto]"
+                      cachedDataType="i4"
+                      cachedName="idProducto"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[idProducto]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fecha]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="fecha"
+                      lineageId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[fecha]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[stockActual]"
+                      cachedDataType="i4"
+                      cachedName="stockActual"
+                      lineageId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[stockActual]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[diasSinVenta]"
+                      cachedDataType="i4"
+                      cachedName="diasSinVenta"
+                      lineageId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[diasSinVenta]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fechaUltimaVenta]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="fechaUltimaVenta"
+                      lineageId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[fechaUltimaVenta]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[valorInventario]"
+                      cachedDataType="cy"
+                      cachedName="valorInventario"
+                      lineageId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[valorInventario]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\FactInventario\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[codigoProducto]"
+                      cachedDataType="i4"
+                      cachedName="codigoProducto"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\FactInventario\Ordenar por idProducto origen.Outputs[Salida de ordenación].Columns[codigoProducto]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[idProducto]"
+                      cachedDataType="i4"
+                      cachedName="idProducto"
+                      lineageId="Package\FactInventario\Ordenar por idProducto origen.Outputs[Salida de ordenación].Columns[idProducto]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha]"
+                      name="fecha">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\FactInventario\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fecha]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[stockActual]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[stockActual]"
+                      name="stockActual">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\FactInventario\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[stockActual]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[diasSinVenta]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[diasSinVenta]"
+                      name="diasSinVenta">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\FactInventario\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[diasSinVenta]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fechaUltimaVenta]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fechaUltimaVenta]"
+                      name="fechaUltimaVenta">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\FactInventario\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fechaUltimaVenta]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[valorInventario]"
+                      dataType="cy"
+                      lineageId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[valorInventario]"
+                      name="valorInventario">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\FactInventario\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[valorInventario]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idProducto]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idProducto]"
+                      name="idProducto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\FactInventario\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[idProducto]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventario\Combinación de mezcla 1"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[fechaOlap]"
+                      cachedDataType="dbDate"
+                      cachedName="fechaOlap"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[fechaOlap]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[stockActual]"
+                      cachedDataType="i4"
+                      cachedName="stockActual"
+                      lineageId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[stockActual]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[diasSinVenta]"
+                      cachedDataType="i4"
+                      cachedName="diasSinVenta"
+                      lineageId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[diasSinVenta]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[fechaUltimaVenta]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="fechaUltimaVenta"
+                      lineageId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[fechaUltimaVenta]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[valorInventario]"
+                      cachedDataType="cy"
+                      cachedName="valorInventario"
+                      lineageId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[valorInventario]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[idProducto]"
+                      cachedDataType="i4"
+                      cachedName="idProducto"
+                      lineageId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[idProducto]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[Fecha]"
+                      cachedDataType="dbDate"
+                      cachedName="Fecha"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\FactInventario\Ordenar 2.Outputs[Salida de ordenación].Columns[Fecha]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[TiempoKey]"
+                      cachedDataType="i4"
+                      cachedName="TiempoKey"
+                      lineageId="Package\FactInventario\Ordenar 2.Outputs[Salida de ordenación].Columns[TiempoKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla]"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[stockActual]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[stockActual]"
+                      name="stockActual">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[stockActual]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[diasSinVenta]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[diasSinVenta]"
+                      name="diasSinVenta">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[diasSinVenta]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[fechaUltimaVenta]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[fechaUltimaVenta]"
+                      name="fechaUltimaVenta">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[fechaUltimaVenta]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[valorInventario]"
+                      dataType="cy"
+                      lineageId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[valorInventario]"
+                      name="valorInventario">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[valorInventario]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[idProducto]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[idProducto]"
+                      name="idProducto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla].Columns[idProducto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[idTiempo]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[idTiempo]"
+                      name="idTiempo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla].Columns[TiempoKey]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventario\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[FactInventario]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactInventario\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{16925508-E452-4B15-BC6C-8B38C37302E3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[34.28.134.200,1433.MGSolutionsDW.sa 1]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[stockActual]"
+                      cachedDataType="i4"
+                      cachedName="stockActual"
+                      externalMetadataColumnId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[stockActual]"
+                      lineageId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[stockActual]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[diasSinVenta]"
+                      cachedDataType="i4"
+                      cachedName="diasSinVenta"
+                      externalMetadataColumnId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[diasSinVenta]"
+                      lineageId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[diasSinVenta]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[fechaUltimaVenta]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="fechaUltimaVenta"
+                      externalMetadataColumnId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaUltimaVenta]"
+                      lineageId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[fechaUltimaVenta]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[valorInventario]"
+                      cachedDataType="cy"
+                      cachedName="valorInventario"
+                      externalMetadataColumnId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[valorInventario]"
+                      lineageId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[valorInventario]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[idProducto]"
+                      cachedDataType="i4"
+                      cachedName="idProducto"
+                      externalMetadataColumnId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[idProducto]"
+                      lineageId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[idProducto]" />
+                    <inputColumn
+                      refId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[idTiempo]"
+                      cachedDataType="i4"
+                      cachedName="idTiempo"
+                      externalMetadataColumnId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[idTiempo]"
+                      lineageId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla].Columns[idTiempo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[stockActual]"
+                      dataType="i4"
+                      name="stockActual" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[diasSinVenta]"
+                      dataType="i4"
+                      name="diasSinVenta" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[fechaUltimaVenta]"
+                      dataType="wstr"
+                      length="100"
+                      name="fechaUltimaVenta" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[valorInventario]"
+                      dataType="cy"
+                      name="valorInventario" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[idProducto]"
+                      dataType="i4"
+                      name="idProducto" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[idTiempo]"
+                      dataType="i4"
+                      name="idTiempo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventario\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventario\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventario\FactInventario"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="FactInventario"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">WITH Movimientos AS
+(
+    -- COMPRAS
+    SELECT
+        CAST(c.fechaEmision AS DATE) AS fecha,
+        dc.id_item,
+        dc.cantidad AS movimientoCantidad,
+        dc.costo AS costoCompra,
+        NULL AS fechaVenta,
+        0 AS tipoMovimiento   -- 0 = compra, se procesa primero
+    FROM Compra c
+    INNER JOIN DetalleCompra dc
+        ON c.id_compra = dc.id_compra
+
+    UNION ALL
+
+    -- VENTAS
+    SELECT
+        CAST(v.fechaEmision AS DATE) AS fecha,
+        dv.id_item,
+        -dv.cantidad AS movimientoCantidad,
+        NULL AS costoCompra,
+        CAST(v.fechaEmision AS DATE) AS fechaVenta,
+        1 AS tipoMovimiento   -- 1 = venta, se procesa después
+    FROM Venta v
+    INNER JOIN DetalleVentaGeneral dv
+        ON v.id_venta = dv.id_venta
+    WHERE dv.id_item IS NOT NULL
+),
+
+Calculos AS
+(
+    SELECT
+        fecha,
+        id_item,
+        movimientoCantidad,
+        costoCompra,
+        fechaVenta,
+
+        -- STOCK ACUMULADO
+        SUM(movimientoCantidad)
+        OVER(
+            PARTITION BY id_item
+            ORDER BY fecha, tipoMovimiento   -- 👈 desempate: compras antes que ventas
+            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+        ) AS stockActual,
+
+        -- ULTIMA VENTA
+        MAX(fechaVenta)
+        OVER(
+            PARTITION BY id_item
+            ORDER BY fecha, tipoMovimiento
+            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+        ) AS fechaUltimaVenta,
+
+        -- ÚLTIMO COSTO DE COMPRA REAL
+        MAX(costoCompra)
+        OVER(
+            PARTITION BY id_item
+            ORDER BY fecha, tipoMovimiento
+            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+        ) AS ultimoCostoCompra
+
+    FROM Movimientos
+)
+
+SELECT
+    fecha,
+    id_item,
+    MAX(stockActual) AS stockActual,
+    ISNULL(
+        DATEDIFF(DAY, MAX(fechaUltimaVenta), fecha),
+        -1
+    ) AS diasSinVenta,
+    MAX(fechaUltimaVenta) AS fechaUltimaVenta,
+    MAX(stockActual) * MAX(ultimoCostoCompra) AS valorInventario
+FROM Calculos
+
+GROUP BY
+    fecha,
+    id_item
+ORDER BY
+    fecha,
+    id_item;</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactInventario\FactInventario.Connections[OleDbConnection]"
+                  connectionManagerID="{AE74D035-BFFF-4CC3-A73E-F7DC437BEAA0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[34.28.134.200,1433.MGSolutionsGroup.sa1]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[fecha]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[fecha]"
+                      length="10"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[fecha]"
+                      name="fecha"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[idProducto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[id_item]"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[idProducto]"
+                      name="idProducto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[stockActual]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[stockActual]"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[stockActual]"
+                      name="stockActual"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[diasSinVenta]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[diasSinVenta]"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[diasSinVenta]"
+                      name="diasSinVenta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[fechaUltimaVenta]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaUltimaVenta]"
+                      length="10"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[fechaUltimaVenta]"
+                      name="fechaUltimaVenta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[valorInventario]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[valorInventario]"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[valorInventario]"
+                      name="valorInventario"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[fecha]"
+                      dataType="wstr"
+                      length="10"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[id_item]"
+                      dataType="i4"
+                      name="id_item" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[stockActual]"
+                      dataType="i4"
+                      name="stockActual" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[diasSinVenta]"
+                      dataType="i4"
+                      name="diasSinVenta" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[fechaUltimaVenta]"
+                      dataType="wstr"
+                      length="10"
+                      name="fechaUltimaVenta" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].ExternalColumns[valorInventario]"
+                      dataType="cy"
+                      name="valorInventario" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[fecha]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[id_item]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[id_item]"
+                      name="id_item" />
+                    <outputColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[stockActual]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[stockActual]"
+                      name="stockActual" />
+                    <outputColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[diasSinVenta]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[diasSinVenta]"
+                      name="diasSinVenta" />
+                    <outputColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[fechaUltimaVenta]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[fechaUltimaVenta]"
+                      name="fechaUltimaVenta" />
+                    <outputColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[valorInventario]"
+                      dataType="cy"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[valorInventario]"
+                      name="valorInventario" />
+                    <outputColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventario\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\FactInventario\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[fecha]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="fecha"
+                      lineageId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[stockActual]"
+                      cachedDataType="i4"
+                      cachedName="stockActual"
+                      lineageId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[stockActual]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[diasSinVenta]"
+                      cachedDataType="i4"
+                      cachedName="diasSinVenta"
+                      lineageId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[diasSinVenta]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[fechaUltimaVenta]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="fechaUltimaVenta"
+                      lineageId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fechaUltimaVenta]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[valorInventario]"
+                      cachedDataType="cy"
+                      cachedName="valorInventario"
+                      lineageId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[valorInventario]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[idProducto]"
+                      cachedDataType="i4"
+                      cachedName="idProducto"
+                      lineageId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idProducto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar.Inputs[Entrada de ordenación].Columns[fechaOlap]"
+                      cachedDataType="dbDate"
+                      cachedName="fechaOlap"
+                      lineageId="Package\FactInventario\Columna derivada.Outputs[Salida de columna derivada].Columns[fechaOlap]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[fecha]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[fecha]"
+                      name="fecha">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fecha]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[stockActual]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[stockActual]"
+                      name="stockActual">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[stockActual]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[diasSinVenta]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[diasSinVenta]"
+                      name="diasSinVenta">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[diasSinVenta]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[fechaUltimaVenta]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[fechaUltimaVenta]"
+                      name="fechaUltimaVenta">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[fechaUltimaVenta]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[valorInventario]"
+                      dataType="cy"
+                      lineageId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[valorInventario]"
+                      name="valorInventario">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[valorInventario]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[idProducto]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[idProducto]"
+                      name="idProducto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[idProducto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[fechaOlap]"
+                      dataType="dbDate"
+                      lineageId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación].Columns[fechaOlap]"
+                      name="fechaOlap"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\Columna derivada.Outputs[Salida de columna derivada].Columns[fechaOlap]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventario\Ordenar 2"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\FactInventario\Ordenar 2.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar 2.Inputs[Entrada de ordenación].Columns[TiempoKey]"
+                      cachedDataType="i4"
+                      cachedName="TiempoKey"
+                      lineageId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[TiempoKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar 2.Inputs[Entrada de ordenación].Columns[Fecha]"
+                      cachedDataType="dbDate"
+                      cachedName="Fecha"
+                      lineageId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[Fecha]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventario\Ordenar 2.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar 2.Outputs[Salida de ordenación].Columns[TiempoKey]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Ordenar 2.Outputs[Salida de ordenación].Columns[TiempoKey]"
+                      name="TiempoKey">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[TiempoKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar 2.Outputs[Salida de ordenación].Columns[Fecha]"
+                      dataType="dbDate"
+                      lineageId="Package\FactInventario\Ordenar 2.Outputs[Salida de ordenación].Columns[Fecha]"
+                      name="Fecha"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[Fecha]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventario\Ordenar por idProducto"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar por idProducto"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\FactInventario\Ordenar por idProducto.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto.Inputs[Entrada de ordenación].Columns[fecha]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="fecha"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[fecha]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto.Inputs[Entrada de ordenación].Columns[idProducto]"
+                      cachedDataType="i4"
+                      cachedName="idProducto"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[idProducto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto.Inputs[Entrada de ordenación].Columns[stockActual]"
+                      cachedDataType="i4"
+                      cachedName="stockActual"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[stockActual]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto.Inputs[Entrada de ordenación].Columns[diasSinVenta]"
+                      cachedDataType="i4"
+                      cachedName="diasSinVenta"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[diasSinVenta]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto.Inputs[Entrada de ordenación].Columns[fechaUltimaVenta]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="fechaUltimaVenta"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[fechaUltimaVenta]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto.Inputs[Entrada de ordenación].Columns[valorInventario]"
+                      cachedDataType="cy"
+                      cachedName="valorInventario"
+                      lineageId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[valorInventario]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[fecha]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[fecha]"
+                      name="fecha">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[fecha]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[idProducto]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[idProducto]"
+                      name="idProducto"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[idProducto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[stockActual]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[stockActual]"
+                      name="stockActual">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[stockActual]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[diasSinVenta]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[diasSinVenta]"
+                      name="diasSinVenta">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[diasSinVenta]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[fechaUltimaVenta]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[fechaUltimaVenta]"
+                      name="fechaUltimaVenta">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[fechaUltimaVenta]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[valorInventario]"
+                      dataType="cy"
+                      lineageId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación].Columns[valorInventario]"
+                      name="valorInventario">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB].Columns[valorInventario]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventario\Ordenar por idProducto origen"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar por idProducto origen"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\FactInventario\Ordenar por idProducto origen.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto origen.Inputs[Entrada de ordenación].Columns[idProducto]"
+                      cachedDataType="i4"
+                      cachedName="idProducto"
+                      lineageId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[idProducto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto origen.Inputs[Entrada de ordenación].Columns[codigoProducto]"
+                      cachedDataType="i4"
+                      cachedName="codigoProducto"
+                      lineageId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[codigoProducto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventario\Ordenar por idProducto origen.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto origen.Outputs[Salida de ordenación].Columns[idProducto]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Ordenar por idProducto origen.Outputs[Salida de ordenación].Columns[idProducto]"
+                      name="idProducto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[idProducto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventario\Ordenar por idProducto origen.Outputs[Salida de ordenación].Columns[codigoProducto]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Ordenar por idProducto origen.Outputs[Salida de ordenación].Columns[codigoProducto]"
+                      name="codigoProducto"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[codigoProducto]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventario\Origen de OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[DimProducto]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactInventario\Origen de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{16925508-E452-4B15-BC6C-8B38C37302E3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[34.28.134.200,1433.MGSolutionsDW.sa 1]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[idProducto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[idProducto]"
+                      lineageId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[idProducto]"
+                      name="idProducto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[codigoProducto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[codigoProducto]"
+                      lineageId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[codigoProducto]"
+                      name="codigoProducto"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[idProducto]"
+                      dataType="i4"
+                      name="idProducto" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[codigoProducto]"
+                      dataType="i4"
+                      name="codigoProducto" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ultimaFechaCompra]"
+                      dataType="wstr"
+                      length="27"
+                      name="ultimaFechaCompra" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ultimoCostoUnitario]"
+                      dataType="cy"
+                      name="ultimoCostoUnitario" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ultimaFechaVenta]"
+                      dataType="wstr"
+                      length="27"
+                      name="ultimaFechaVenta" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ultimoPrecioUnitario]"
+                      dataType="cy"
+                      name="ultimoPrecioUnitario" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="300"
+                      name="categoria" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[marca]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="marca" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[nombreProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="300"
+                      name="nombreProducto" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[idProducto]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[idProducto]"
+                      name="idProducto" />
+                    <outputColumn
+                      refId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[codigoProducto]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[codigoProducto]"
+                      name="codigoProducto" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventario\Origen de OLE DB 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[DimTiempo]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactInventario\Origen de OLE DB 1.Connections[OleDbConnection]"
+                  connectionManagerID="{16925508-E452-4B15-BC6C-8B38C37302E3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[34.28.134.200,1433.MGSolutionsDW.sa 1]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[TiempoKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[TiempoKey]"
+                      lineageId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[TiempoKey]"
+                      name="TiempoKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[Fecha]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha]"
+                      lineageId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].Columns[Fecha]"
+                      name="Fecha"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[TiempoKey]"
+                      dataType="i4"
+                      name="TiempoKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha]"
+                      dataType="dbDate"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[Anio]"
+                      dataType="i4"
+                      name="Anio" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[Trimestre]"
+                      dataType="i4"
+                      name="Trimestre" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[Mes]"
+                      dataType="i4"
+                      name="Mes" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreMes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="NombreMes" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[Semana]"
+                      dataType="i4"
+                      name="Semana" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[Dia]"
+                      dataType="i4"
+                      name="Dia" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreDia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="NombreDia" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[EsFinSemana]"
+                      dataType="bool"
+                      name="EsFinSemana" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB].ExternalColumns[EsDiaFestivo]"
+                      dataType="bool"
+                      name="EsDiaFestivo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[TiempoKey]"
+                      dataType="i4"
+                      lineageId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[TiempoKey]"
+                      name="TiempoKey" />
+                    <outputColumn
+                      refId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[Fecha]"
+                      dataType="dbDate"
+                      lineageId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de error de origen de OLE DB].Columns[Fecha]"
+                      name="Fecha" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FactInventario.Paths[Salida de columna derivada]"
+              endId="Package\FactInventario\Ordenar.Inputs[Entrada de ordenación]"
+              name="Salida de columna derivada"
+              startId="Package\FactInventario\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\FactInventario.Paths[Salida de combinación de mezcla]"
+              endId="Package\FactInventario\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de combinación de mezcla"
+              startId="Package\FactInventario\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\FactInventario.Paths[Salida de combinación de mezcla1]"
+              endId="Package\FactInventario\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de combinación de mezcla"
+              startId="Package\FactInventario\Combinación de mezcla 1.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\FactInventario.Paths[Salida de ordenación]"
+              endId="Package\FactInventario\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\FactInventario\Ordenar por idProducto.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\FactInventario.Paths[Salida de ordenación1]"
+              endId="Package\FactInventario\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\FactInventario\Ordenar por idProducto origen.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\FactInventario.Paths[Salida de ordenación2]"
+              endId="Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\FactInventario\Ordenar 2.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\FactInventario.Paths[Salida de ordenación3]"
+              endId="Package\FactInventario\Combinación de mezcla 1.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\FactInventario\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\FactInventario.Paths[Salida de origen de OLE DB]"
+              endId="Package\FactInventario\Ordenar por idProducto.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\FactInventario\FactInventario.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\FactInventario.Paths[Salida de origen de OLE DB1]"
+              endId="Package\FactInventario\Ordenar por idProducto origen.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\FactInventario\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\FactInventario.Paths[Salida de origen de OLE DB2]"
+              endId="Package\FactInventario\Ordenar 2.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\FactInventario\Origen de OLE DB 1.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\FactInventario"
+          TopLeft="174.285714656723,54.2941175994679" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FactInventario">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\FactInventario\FactInventario"
+          TopLeft="60.0000001277242,28.2941176222579" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\FactInventario\Ordenar por idProducto"
+          TopLeft="41.4285715167618,119.294117542493" />
+        <EdgeLayout
+          Id="Package\FactInventario.Paths[Salida de origen de OLE DB]"
+          TopLeft="134.514285822243,69.8941176222579">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.399999920235"
+              Start="0,0"
+              End="0,41.899999920235">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.899999920235" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\FactInventario\Origen de OLE DB"
+          TopLeft="546.342858265006,115.47058813408" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\FactInventario\Combinación de mezcla"
+          TopLeft="40.7142858009558,212.588235107776" />
+        <EdgeLayout
+          Id="Package\FactInventario.Paths[Salida de ordenación]"
+          TopLeft="135.471428658859,160.894117542493">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.6941175652827"
+              Start="0,0"
+              End="0,44.1941175652827">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.1941175652827" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="221.6,41.6"
+          Id="Package\FactInventario\Ordenar por idProducto origen"
+          TopLeft="277.857143448628,116.999999897445" />
+        <EdgeLayout
+          Id="Package\FactInventario.Paths[Salida de origen de OLE DB1]"
+          TopLeft="546.342858265006,137.035294015762">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-46.8857148163781,0"
+              Start="0,0"
+              End="-39.3857148163781,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-39.3857148163781,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactInventario.Paths[Salida de ordenación1]"
+          TopLeft="388.657143448628,158.599999897445">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-223.409524314339,53.9882352103307"
+              Start="0,0"
+              End="-223.409524314339,46.4882352103307">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.1207315369026" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.1207315369026"
+                    Point2="0,32.1207315369026"
+                    Point3="-4,32.1207315369026" />
+                  <mssgle:LineSegment
+                    End="-219.409524314339,32.1207315369026" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-219.409524314339,32.1207315369026"
+                    Point2="-223.409524314339,32.1207315369026"
+                    Point3="-223.409524314339,36.1207315369026" />
+                  <mssgle:LineSegment
+                    End="-223.409524314339,46.4882352103307" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\FactInventario\Origen de OLE DB 1"
+          TopLeft="492.1428581905,276.058823287435" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\FactInventario\Ordenar 2"
+          TopLeft="293.571429196365,275.294117405753" />
+        <EdgeLayout
+          Id="Package\FactInventario.Paths[Salida de origen de OLE DB2]"
+          TopLeft="492.1428581905,296.476470346594">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-72.9714289941354,0"
+              Start="0,0"
+              End="-65.4714289941354,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-65.4714289941354,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\FactInventario\Columna derivada"
+          TopLeft="55.9142858009557,308.941176199789" />
+        <EdgeLayout
+          Id="Package\FactInventario.Paths[Salida de combinación de mezcla]"
+          TopLeft="136.314285800956,254.188235107776">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.7529410920136"
+              Start="0,0"
+              End="0,47.2529410920136">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.2529410920136" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="116.8,41.6"
+          Id="Package\FactInventario\Ordenar"
+          TopLeft="78.0571429909492,393.717646757191" />
+        <EdgeLayout
+          Id="Package\FactInventario.Paths[Salida de columna derivada]"
+          TopLeft="136.985714395952,350.541176199789">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.1764705574018"
+              Start="0,0"
+              End="0,35.6764705574018">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.6764705574018" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="198.4,41.6"
+          Id="Package\FactInventario\Combinación de mezcla 1"
+          TopLeft="64.4857143906307,492.670587883389" />
+        <EdgeLayout
+          Id="Package\FactInventario.Paths[Salida de ordenación2]"
+          TopLeft="356.371429196365,316.894117405753">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-111.257143203823,175.776470477637"
+              Start="0,0"
+              End="-111.257143203823,168.276470477637">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,83.8882352388183" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,83.8882352388183"
+                    Point2="0,87.8882352388183"
+                    Point3="-4,87.8882352388183" />
+                  <mssgle:LineSegment
+                    End="-107.257143203823,87.8882352388183" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-107.257143203823,87.8882352388183"
+                    Point2="-111.257143203823,87.8882352388183"
+                    Point3="-111.257143203823,91.8882352388183" />
+                  <mssgle:LineSegment
+                    End="-111.257143203823,168.276470477637" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactInventario.Paths[Salida de ordenación3]"
+          TopLeft="136.457142990949,435.317646757191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.3714286003185,57.3529411261983"
+              Start="0,0"
+              End="-20.3714286003185,49.8529411261983">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.728194693096" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.728194693096"
+                    Point2="0,37.728194693096"
+                    Point3="-4,37.728194693096" />
+                  <mssgle:LineSegment
+                    End="-16.3714286003185,37.728194693096" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.3714286003185,37.728194693096"
+                    Point2="-20.3714286003185,37.728194693096"
+                    Point3="-20.3714286003185,41.728194693096" />
+                  <mssgle:LineSegment
+                    End="-20.3714286003185,49.8529411261983" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\FactInventario\Destino de OLE DB"
+          TopLeft="333.057143533777,490.494117360173" />
+        <EdgeLayout
+          Id="Package\FactInventario.Paths[Salida de combinación de mezcla1]"
+          TopLeft="262.885714390631,512.382352621781">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70.1714291431467,0"
+              Start="0,0"
+              End="62.6714291431467,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="62.6714291431467,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventario\FactInventario">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventario\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventario\Origen de OLE DB 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventario\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -12,8 +12,8 @@
   DTS:ObjectName="ETL"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="111"
-  DTS:VersionGUID="{98D24A41-2CB8-42A6-AA68-91496F66C567}">
+  DTS:VersionBuild="113"
+  DTS:VersionGUID="{AFF56076-5A95-4635-952B-8216EAC6D945}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -824,6 +824,24 @@ FROM Cliente C
                       dataType="wstr"
                       length="98"
                       name="nombreCompleto" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\DimEmpleado.Inputs[Entrada de destino de OLE DB].ExternalColumns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\DimEmpleado.Inputs[Entrada de destino de OLE DB].ExternalColumns[apellidoPaterno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="apellidoPaterno" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Empleado\DimEmpleado.Inputs[Entrada de destino de OLE DB].ExternalColumns[apellidoMaterno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="apellidoMaterno" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2138,23 +2156,23 @@ INNER JOIN dbo.tipoUsuario
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="134,42"
+          Size="134.4,41.6"
           Id="Package\Dim-Cliente"
           TopLeft="357.857143618927,263.05882329883" />
         <NodeLayout
-          Size="148,42"
+          Size="148,41.6"
           Id="Package\Dim-Empleado"
           TopLeft="356,166" />
         <NodeLayout
-          Size="164,42"
+          Size="164,41.6"
           Id="Package\Dim-EstadoVentas"
           TopLeft="340.999999978713,90.8235293970182" />
         <NodeLayout
-          Size="145,42"
+          Size="144.8,41.6"
           Id="Package\DimProducto"
-          TopLeft="362.142857913764,357.752940886903" />
+          TopLeft="352.142857892477,356.223529123538" />
         <NodeLayout
-          Size="136,42"
+          Size="136,41.6"
           Id="Package\Dim-Tiempo"
           TopLeft="169.285714646079,90.2352940385523" />
         <EdgeLayout
@@ -2203,7 +2221,7 @@ INNER JOIN dbo.tipoUsuario
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="305.285714646079,111.529411717785">
+          TopLeft="305.285714646079,111.329411717785">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2225,30 +2243,18 @@ INNER JOIN dbo.tipoUsuario
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
-          TopLeft="424.857143618927,305.05882329883">
+          TopLeft="424.800000755702,304.65882329883">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9.78571429483696,52.694117588073"
+              EndConnector="0,51.5647058247076"
               Start="0,0"
-              End="9.78571429483696,45.194117588073">
+              End="0,44.0647058247076">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.3470587940365" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.3470587940365"
-                    Point2="0,26.3470587940365"
-                    Point3="4,26.3470587940365" />
-                  <mssgle:LineSegment
-                    End="5.78571429483696,26.3470587940365" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.78571429483696,26.3470587940365"
-                    Point2="9.78571429483696,26.3470587940365"
-                    Point3="9.78571429483696,30.3470587940365" />
-                  <mssgle:LineSegment
-                    End="9.78571429483696,45.194117588073" />
+                    End="0,44.0647058247076" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2266,13 +2272,13 @@ INNER JOIN dbo.tipoUsuario
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="164,42"
-          Id="Package\Dim-Cliente\Origen de OLE DB"
-          TopLeft="371,48" />
-        <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Dim-Cliente\DimCliente"
           TopLeft="394,162" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Dim-Cliente\Origen de OLE DB"
+          TopLeft="371,48" />
         <EdgeLayout
           Id="Package\Dim-Cliente.Paths[Salida de origen de OLE DB]"
           TopLeft="456,90">
@@ -2298,19 +2304,44 @@ INNER JOIN dbo.tipoUsuario
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim-Cliente\DimCliente">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim-Cliente\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Dim-Empleado">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="164,42"
+          Size="164,41.6"
           Id="Package\Dim-Empleado\Nombre Completo"
           TopLeft="444.076921242934,119.538461515537" />
         <NodeLayout
-          Size="157,42"
+          Size="156.8,41.6"
           Id="Package\Dim-Empleado\Query Empleado"
           TopLeft="320,31" />
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Dim-Empleado\DimEmpleado"
+          TopLeft="575,224" />
         <EdgeLayout
           Id="Package\Dim-Empleado.Paths[Salida de origen de OLE DB]"
           TopLeft="398.5,73">
@@ -2345,10 +2376,6 @@ INNER JOIN dbo.tipoUsuario
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="144,42"
-          Id="Package\Dim-Empleado\DimEmpleado"
-          TopLeft="575,224" />
         <EdgeLayout
           Id="Package\Dim-Empleado.Paths[Salida de columna derivada]"
           TopLeft="526.076921242934,161.538461515537">
@@ -2386,19 +2413,40 @@ INNER JOIN dbo.tipoUsuario
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim-Empleado\Query Empleado">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim-Empleado\DimEmpleado">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Dim-EstadoVentas">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="156,42"
-          Id="Package\Dim-EstadoVentas\DimEstadoVenta"
-          TopLeft="340,241" />
-        <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\Dim-EstadoVentas\Query TipoEstado"
           TopLeft="378,81" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Dim-EstadoVentas\DimEstadoVenta"
+          TopLeft="340,241" />
         <EdgeLayout
           Id="Package\Dim-EstadoVentas.Paths[Salida de origen de OLE DB]"
           TopLeft="459.5,123">
@@ -2449,19 +2497,32 @@ INNER JOIN dbo.tipoUsuario
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim-EstadoVentas\Query TipoEstado">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DimProducto">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="155,42"
-          Id="Package\DimProducto\DimProducto"
-          TopLeft="350.384610386995,130.999998062849" />
-        <NodeLayout
-          Size="164,42"
+          Size="164,41.6"
           Id="Package\DimProducto\Origen de OLE DB"
           TopLeft="353,40" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\DimProducto\DimProducto"
+          TopLeft="350.384610386995,130.999998062849" />
         <EdgeLayout
           Id="Package\DimProducto.Paths[Salida de origen de OLE DB]"
           TopLeft="431.442305193498,82">
@@ -2505,61 +2566,6 @@ INNER JOIN dbo.tipoUsuario
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim-Cliente\Origen de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim-Cliente\DimCliente">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim-Empleado\Query Empleado">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim-Empleado\DimEmpleado">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim-EstadoVentas\Query TipoEstado">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
