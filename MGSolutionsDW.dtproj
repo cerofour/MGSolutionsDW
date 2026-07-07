@@ -26,11 +26,12 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">CX-LCA0801-23</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="DIWDvBsNRrA=" SSIS:IV="qkb2+F5zquSomkWzO84dPg==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">93ECLSl+LvJqK9w50OYSRQnfPiqFwI8ersYg/A9OBb9SEFtFJ5nL9T+bIYdQGl/TuGEPJZGYmID6SW1mePnewLeI5Jitnqc6CUHO7M/lrlLduGFDcJLWYyHMeitcTwVeH6rQZBp0PnRaYGwQ9nbRokz1gFs2D8bawXlQHfXZbeY2MAcC0rKpq0FBLWiBRrSS</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="4GzVZ3/cN64=" SSIS:IV="bUT2Z34eZfLwqgYxwmAxWg==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">yvech5qM6RgEaSt/9BJxdndkwCcGrxFAJABsAuhsaKxw+r2z7VIv6o74spbRgmKDxtWqIOfvZwY88YYxALccMvXMi95CHB0GmJ8Vx6wrUMsfDCV56fLspuRGVA7qh0BJYfx9hjQIEHOUeBw0QLjtEJQ22w5nZ598UV+JKczoQnPXKXNYTUFlqIGqe85POIZk</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="ETL.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="FactVenta.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="34.28.134.200,1433.MGSolutionsGroup.sa 1.conmgr" />
@@ -584,10 +585,27 @@
                 <SSIS:Property SSIS:Name="Name">ETL</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">87</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">111</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{497AC32C-C8C4-477F-93BE-ED9F08CC10C9}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{98D24A41-2CB8-42A6-AA68-91496F66C567}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">2</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="FactVenta.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{41F1BADA-F386-4F2C-AD8A-EE51FB9A9FA3}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">FactVenta</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">3</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{0DE16AAF-FE90-48E0-8C78-096A2A1A8668}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

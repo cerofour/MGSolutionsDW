@@ -12,8 +12,8 @@
   DTS:ObjectName="ETL"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="91"
-  DTS:VersionGUID="{C738C0F2-485C-48DD-AA48-08092C764A98}">
+  DTS:VersionBuild="111"
+  DTS:VersionGUID="{98D24A41-2CB8-42A6-AA68-91496F66C567}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -974,8 +974,8 @@ FROM Cliente C
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT dbo.Empleado.id_empleado AS codigoUsuario,
-	dbo.Usuario.id_usuario AS codigoEmpleado,
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT dbo.Empleado.id_empleado AS codigoEmpleado,
+	dbo.Usuario.id_usuario AS codigoUsuario,
 	dbo.Empleado.nombre,
 	dbo.Empleado.apellidoPaterno,
 	dbo.Empleado.apellidoMaterno, 
